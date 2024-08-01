@@ -41,12 +41,11 @@ class BookingSerializer(serializers.ModelSerializer):
         return prev_bookings[0].id if prev_bookings else '-'
 
     def create(self, validated_data):
-        # flat = Flat.objects.get(name=validated_data["flat"])
         checkin = validated_data.get("checkin")
         checkout = validated_data.get("checkout")
         if not dates_valid(checkin, checkout):
             raise serializers.ValidationError({
-                "detail": f"The selected date range (checkin: {checkin} checkout: {checkout}) is invalid."
+                "detail": f"The selected date range is invalid."
             })
         if flatAvailable(validated_data):
             return Booking.objects.create(**validated_data)

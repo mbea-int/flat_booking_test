@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Bookings from './components/Bookings';
 import BookingLoadingComponent from './components/BookingLoading';
-import OrderButtons from './components/OrderButtons';
 
 function App() {
 
@@ -17,7 +16,7 @@ function App() {
   useEffect(() => {
     setAppState({loading: true});
     const apiUrl = "http://127.0.0.1:8000/api/bookings/" + order;
-    console.log(apiUrl);
+    
     fetch(apiUrl)
       .then((response) => response.json())
       .then((bookings) => {

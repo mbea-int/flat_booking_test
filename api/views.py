@@ -1,6 +1,5 @@
-from . import models, serializers
+from . import models
 from .serializers import FlatSerializer, BookingSerializer
-from rest_framework.generics import RetrieveDestroyAPIView, ListCreateAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
 from rest_framework import filters
